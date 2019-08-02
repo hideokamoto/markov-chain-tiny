@@ -1,6 +1,6 @@
 {
   "name": "@hideokamoto/markov-chain-tiny",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "markov chain generator by using tiny segmenter",
   "main": "dist/index.js",
   "scripts": {
