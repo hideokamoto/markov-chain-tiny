@@ -1,34 +1,22 @@
-# markov-chain-kuromoji
+# markov-chain-tiny
 
-generates markov chain words powered by kuromoji.js
+Simple markov chain text generator by using tiny segmenter
 
 ## Install
 
 ```bash
-$ npm install -S @hideokamoto/markov-chain-kuromoji
+$ npm install -S @hideokamoto/markov-chain-tiny
 ```
+
 ## Docs
-https://hideokamoto.github.io/markov-chain-kuromoji/index.html
+https://hideokamoto.github.io/markov-chain-tiny/index.html
 
 ## Usage
-
-### From file
-```typescript
-import MarkovChain from '@hideokamoto/markov-chain-kuromoji'
-import fs from 'fs'
-
-const markov = new MarkovChain();
-
-markov.start(5, fs.readFileSync('sample.txt', 'utf8'))
-.then(output => {
-  console.log(output);
-});
-```
 
 ### Direct text
 
 ```typescript
-import MarkovChain from '@hideokamoto/markov-chain-kuromoji'
+import MarkovChain from '@hideokamoto/markov-chain-tiny'
 
 const text = `
 　吾輩わがはいは猫である。名前はまだ無い。
@@ -65,31 +53,23 @@ const text = `
 　主人は毎日学校へ行く。帰ると書斎へ立て籠こもる。人が来ると、教師が厭いやだ厭だという。水彩画も滅多にかかない。タカジヤスターゼも功能がないといってやめてしまった。小供は感心に休まないで幼稚園へかよう。帰ると唱歌を歌って、毬まりをついて、時々吾輩を尻尾しっぽでぶら下げる。
 　吾輩は御馳走ごちそうも食わないから別段肥ふとりもしないが、まずまず健康で跛びっこにもならずにその日その日を暮している。鼠は決して取らない。おさんは未いまだに嫌きらいである。名前はまだつけてくれないが、欲をいっても際限がないから生涯しょうがいこの教師の家うちで無名の猫で終るつもりだ。`
 
-const markov = new MarkovChain()
-markov.start(5, text)
-  .then(data => console.log(data))
+const markov = new MarkovChain(text)
+const sentence = markov.makeSentence()
+console.log(sentence)
 ```
 
 The script will returns the following text.
 
 ```bash
-$ node example/indes.js
-わずかに午ごを過ぎたる太陽は、さすがに極きまりが善よくはなかったハハハハ」とそそのかして見給えきっと面白いものがかくまで平気に睡ねむられるものか、ある日その友人で美学とかをやって見たが、気の毒な感じが今でも記憶してますます形勢をわるくするのを誰かが立派な額にしたり、謡うたいを習ったり、頭へ袋をかぶせたり、時によると弓に凝こったり、へっついの中うちで無名の猫だけに気焔きえんを吐く。
+$ node examples/index.js 
+しかもなくされば褐色とびいろでも大きな声であった。
+
+$ node examples/index.js 
+と毛筆と思った。
+
+$ node examples/index.js 
+その癖やり出すといい毛並と主人の楽たのない。
+
+$ node examples/index.js 
+台所へ追い込んだ君も残っても烈しく鼓動している事のちょっと吾輩が最後に至っていしゅつした。
 ```
-
-## Use custom dicrionaly
-
-```typescript
-const markov = new MarkovChain({
-  dictPath: 'node_modules/kuromoji/dict/'
-})
-```
-
-## Copyright
-COPYRIGHT (c) 2016 Masto Urai  
-The project has forked from the project.  
-https://github.com/uraway/markov-chain-kuromoji
-
-
-COPYRIGHT (c) 2019 - Hidetaka Okamoto  
-All code has been updated for TypeScript

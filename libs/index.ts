@@ -8,7 +8,14 @@ interface Morpheme {
 interface TinySegmenter {
     segment: (text: string) => string;
 }
-
+/**
+ * @example
+ * ```typescript
+ * const markov = new MarkovChain('こんにちは');
+ * const sentence = markov.makeSentence()
+ * console.log(sentence)
+ * ```
+ */
 class MarkovChain {
     private dict: Morpheme
 
@@ -53,6 +60,16 @@ class MarkovChain {
         return morpheme
     }
 
+    /**
+     * Create sentence by markov chain
+     * @return {string}
+     * @example
+     * ```typescript
+     * const markov = new MarkovChain('こんにちは');
+     * const sentence = markov.makeSentence()
+     * console.log(sentence)
+     * ```
+     */
     public makeSentence (): string {
         const morpheme: Morpheme = this.dict
         let nowWord = ''
