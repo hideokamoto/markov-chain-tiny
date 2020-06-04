@@ -59,7 +59,7 @@
   },
   "devDependencies": {
     "@types/jest": "24.9.1",
-    "@types/node": "12.6.9",
+    "@types/node": "12.12.43",
     "@typescript-eslint/eslint-plugin": "1.13.0",
     "@typescript-eslint/parser": "1.13.0",
     "@typescript-eslint/typescript-estree": "1.13.0",
